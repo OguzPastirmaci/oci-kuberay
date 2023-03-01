@@ -102,7 +102,7 @@ spec:
   # the pod replicas in this group typed worker
   - replicas: 1
     minReplicas: 1
-    maxReplicas: 10
+    maxReplicas: 7
     # logical group name, for this called large-group, also can be functional
     groupName: BM.GPU.A10.4
     # If worker pods need to be added, we can increment the replicas.
