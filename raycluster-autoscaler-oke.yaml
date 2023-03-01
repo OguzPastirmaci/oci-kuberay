@@ -143,11 +143,11 @@ spec:
           resources:
             limits:
               cpu: 120
-              memory: 950Gi
+              memory: 900Gi
               nvidia.com/gpu: 4
             requests:
               cpu: 120
-              memory: 950Gi
+              memory: 900Gi
               nvidia.com/gpu: 4
           lifecycle:
             preStop:
