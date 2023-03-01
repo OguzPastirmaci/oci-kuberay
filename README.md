@@ -26,3 +26,15 @@ kubectl -n ray-system get pod --selector=app.kubernetes.io/component=kuberay-ope
 ```
 kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke.yaml
 ```
+
+2 - The KubeRay operator will detect the RayCluster object. The operator will then start your Ray cluster by creating head and worker pods. To view Ray cluster’s pods, run the following command:
+
+```
+kubectl get pods --selector=ray.io/cluster=raycluster-autoscaler
+
+# NAME                                             READY   STATUS    RESTARTS   AGE
+# raycluster-autoscaler-head-xxxxx                 2/2     Running   0          XXs
+# raycluster-autoscaler-worker-small-group-yyyyy   1/1     Running   0          XXs
+```
+
+3 - Wait for the pods to reach Running state. This may take a few minutes – most of this time is spent downloading the Ray images.
