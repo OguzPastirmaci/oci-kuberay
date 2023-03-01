@@ -5,7 +5,7 @@
 1 - Deploy the KubeRay Operator with the following command:
 
 ```
-kubectl create -k "github.com/ray-project/kuberay/ray-operator/config/default?ref=v0.3.0&timeout=90s"
+kubectl create -k "github.com/ray-project/kuberay/ray-operator/config/default?ref=v0.4.0&timeout=90s""
 ```
 
 2 - Confirm that the operator is running in the namespace `ray-system`.
