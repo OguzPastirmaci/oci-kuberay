@@ -104,7 +104,7 @@ spec:
     minReplicas: 1
     maxReplicas: 7
     # logical group name, for this called large-group, also can be functional
-    groupName: BM.GPU.A10.4
+    groupName: ray-worker-10-bm
     # If worker pods need to be added, we can increment the replicas.
     # If worker pods need to be removed, we decrement the replicas, and populate the workersToDelete list.
     # The operator will remove pods from the list until the desired number of replicas is satisfied.
