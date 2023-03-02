@@ -93,7 +93,7 @@ You should see an output similar to:
 4 - You can also submit a job to run your python script directly. You can find an example in this repo (https://github.com/OguzPastirmaci/oci-kuberay/blob/main/examples/gpu.py)
 
 ```
-ray job submit --working-dir /Users/opastirm/Documents/ray --no-wait -- python raygpu.py
+ray job submit --working-dir <working directory> --no-wait -- python gpu.py
 ```
 
 ## Removing/redeploying the Ray Cluster if needed
