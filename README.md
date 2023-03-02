@@ -10,7 +10,7 @@ Please follow the instructions in https://kubernetes.io/docs/tasks/tools/ to ins
 
 1 - Follow the instruction in https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm for installing the CLI.
 
-2 - Save the private and public keys in the email to a location in your computer. We will use the location of the private key in the next step.
+2 - Save the private key in the email to a location in your computer. We will use the location of the private key in the next step.
 
 3 - Copy the content in the email to `~/.oci/config`.
 
