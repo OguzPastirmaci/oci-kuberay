@@ -14,7 +14,7 @@ Please follow the instructions in https://kubernetes.io/docs/tasks/tools/ to ins
 
 3 - Copy the content in the email to `~/.oci/config`.
 
-The content will look like below:
+The content will look like below (redacted version):
 
 ```
 [DEFAULT]
