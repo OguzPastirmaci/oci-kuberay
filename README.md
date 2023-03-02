@@ -27,7 +27,7 @@ key_file=<path to your private keyfile> # TODO
 
 Make sure to change the `key_file` to the location of the private key.
 
-4 - Run the following commands to setup the access info for the Kubernetes cluster. You will need to run this commands only once.
+4 - Run the following commands to setup the access info for the Kubernetes cluster.
 
 ```
 mkdir -p $HOME/.kube
