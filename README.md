@@ -105,8 +105,14 @@ You can edit/use the Kubernetes deployment yaml file here: https://github.com/Og
 
 1 - Run the following command to remove the current cluster:
 
+For A10 Bare Metal instances
 ```
-kubectl delete -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke.yaml
+kubectl delete -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-bm.yaml
+```
+
+For A10 Virtual Machines instances
+```
+https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-vm.yaml
 ```
 
 2 - Check that you don't see any Ray pods listed by running the following command:
@@ -117,10 +123,16 @@ kubectl get pods --selector=ray.io/cluster=raycluster-autoscaler
 
 ### Deploying a new cluster
 
-1 - Run the following command to deploy a new cluster:
+1 - Run the following commands to deploy a new cluster:
 
+For A10 Bare Metal instances
 ```
-kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke.yaml
+kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-bm.yaml
+```
+
+For A10 Virtual Machines instances
+```
+kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-vm.yaml
 ```
 2 - Check that you see at least 1 head pod and 1 worker pod.
 
