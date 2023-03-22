@@ -110,7 +110,7 @@ For A10 Bare Metal instances
 kubectl delete -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-bm.yaml
 ```
 
-For A10 Virtual Machines instances
+For A10 Virtual Machine instances
 ```
 kubectl delete -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-vm.yaml
 ```
@@ -130,7 +130,7 @@ For A10 Bare Metal instances
 kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-bm.yaml
 ```
 
-For A10 Virtual Machines instances
+For A10 Virtual Machine instances
 ```
 kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-vm.yaml
 ```
