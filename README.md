@@ -112,7 +112,7 @@ kubectl delete -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/m
 
 For A10 Virtual Machines instances
 ```
-https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-vm.yaml
+kubectl delete -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-vm.yaml
 ```
 
 2 - Check that you don't see any Ray pods listed by running the following command:
