@@ -134,4 +134,25 @@ raycluster-autoscaler-head-gcvcr                       2/2     Running   0      
 raycluster-autoscaler-worker-ray-worker-a10-bm-lmnph   1/1     Running   0          127m
 ```
 
+### Creating a new node pool with A10 VMs (VM.GPU.A10.1)
+Below command will create the node pool with 0 instances. After the node pool is created, you can edit the node pool 
+
+```sh
+NODE_POOL_NAME=
+NODE_POOL_SIZE=
+NODE_POOL_BOOT_VOLUME_SIZE=
+NODE_IMAGE_ID=
+
+oci ce node-pool create \
+--cluster-id ocid1.cluster.oc1.iad.aaaaaaaaiwvmnv64tqs45ycsyk5kvuyvkcbepttniqjhmkd4ycngl6n5z7mq \
+--compartment-id ocid1.compartment.oc1..aaaaaaaaetnugzyxgxghutf53ijzebb3ouvdpzyndpr552ffpfvp4oq7lera \
+--kubernetes-version v1.25.4 \
+--name $NODE_POOL_NAME \
+--node-shape VM.GPU.A10.1 \
+--node-image-id $NODE_IMAGE_ID \
+--node-boot-volume-size-in-gbs $NODE_POOL_BOOT_VOLUME_SIZE_IN_GB \
+--size $NODE_POOL_SIZE \
+--placement-configs '[{"availabilityDomain": "'XDxy:US-ASHBURN-AD-1'", "subnetId": "'ocid1.subnet.oc1.iad.aaaaaaaagde6cv3pbgrc25au3phms7jbe5jchcrtprxqgfnxb4uvqv3k5dlq'"}]' \
+--node-metadata '{"user_data": "IyEvYmluL2Jhc2gKCmN1cmwgLS1mYWlsIC1IICJBdXRob3JpemF0aW9uOiBCZWFyZXIgT3JhY2xlIiAtTDAgaHR0cDovLzE2OS4yNTQuMTY5LjI1NC9vcGMvdjIvaW5zdGFuY2UvbWV0YWRhdGEvb2tlX2luaXRfc2NyaXB0IHwgYmFzZTY0IC0tZGVjb2RlID4vdmFyL3J1bi9va2UtaW5pdC5zaAoKYmFzaCAvdmFyL3J1bi9va2UtaW5pdC5zaAoKc3VkbyBkZCBpZmxhZz1kaXJlY3QgaWY9L2Rldi9vcmFjbGVvY2kvb3JhY2xldmRhIG9mPS9kZXYvbnVsbCBjb3VudD0xCmVjaG8gIjEiIHwgc3VkbyB0ZWUgL3N5cy9jbGFzcy9ibG9jay9gcmVhZGxpbmsgL2Rldi9vcmFjbGVvY2kvb3JhY2xldmRhIHwgY3V0IC1kJy8nIC1mIDJgL2RldmljZS9yZXNjYW4KCnN1ZG8gL3Vzci9saWJleGVjL29jaS1ncm93ZnMgLXkK"}'
+```
 
