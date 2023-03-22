@@ -135,12 +135,28 @@ raycluster-autoscaler-worker-ray-worker-a10-bm-lmnph   1/1     Running   0      
 ```
 
 ### Creating a new node pool with A10 VMs (VM.GPU.A10.1)
-Below command will create the node pool, and extend the boot volume.
+Save the following script as `extend-boot-volume.yaml`.
+
+```
+#!/bin/bash
+
+curl --fail -H "Authorization: Bearer Oracle" -L0 http://169.254.169.254/opc/v2/instance/metadata/oke_init_script | base64 --decode >/var/run/oke-init.sh
+
+bash /var/run/oke-init.sh
+
+sudo dd iflag=direct if=/dev/oracleoci/oraclevda of=/dev/null count=1
+echo "1" | sudo tee /sys/class/block/`readlink /dev/oracleoci/oraclevda | cut -d'/' -f 2`/device/rescan
+
+sudo /usr/libexec/oci-growfs -y
+```
+
+Change the values for `NODE_POOL_NAME`, `NODE_POOL_SIZE`, `NODE_POOL_BOOT_VOLUME_SIZE_IN_GB`,and `NODE_IMAGE_ID` and run the below command:
+
 
 ```sh
 NODE_POOL_NAME=
 NODE_POOL_SIZE=
-NODE_POOL_BOOT_VOLUME_SIZE=
+NODE_POOL_BOOT_VOLUME_SIZE_IN_GB=
 NODE_IMAGE_ID=
 
 oci ce node-pool create \
@@ -153,6 +169,6 @@ oci ce node-pool create \
 --node-boot-volume-size-in-gbs $NODE_POOL_BOOT_VOLUME_SIZE_IN_GB \
 --size $NODE_POOL_SIZE \
 --placement-configs '[{"availabilityDomain": "'XDxy:US-ASHBURN-AD-1'", "subnetId": "'ocid1.subnet.oc1.iad.aaaaaaaagde6cv3pbgrc25au3phms7jbe5jchcrtprxqgfnxb4uvqv3k5dlq'"}]' \
---node-metadata '{"user_data": "IyEvYmluL2Jhc2gKCmN1cmwgLS1mYWlsIC1IICJBdXRob3JpemF0aW9uOiBCZWFyZXIgT3JhY2xlIiAtTDAgaHR0cDovLzE2OS4yNTQuMTY5LjI1NC9vcGMvdjIvaW5zdGFuY2UvbWV0YWRhdGEvb2tlX2luaXRfc2NyaXB0IHwgYmFzZTY0IC0tZGVjb2RlID4vdmFyL3J1bi9va2UtaW5pdC5zaAoKYmFzaCAvdmFyL3J1bi9va2UtaW5pdC5zaAoKc3VkbyBkZCBpZmxhZz1kaXJlY3QgaWY9L2Rldi9vcmFjbGVvY2kvb3JhY2xldmRhIG9mPS9kZXYvbnVsbCBjb3VudD0xCmVjaG8gIjEiIHwgc3VkbyB0ZWUgL3N5cy9jbGFzcy9ibG9jay9gcmVhZGxpbmsgL2Rldi9vcmFjbGVvY2kvb3JhY2xldmRhIHwgY3V0IC1kJy8nIC1mIDJgL2RldmljZS9yZXNjYW4KCnN1ZG8gL3Vzci9saWJleGVjL29jaS1ncm93ZnMgLXkK"}'
+--node-metadata '{"user_data": "$(cat extend-boot-volume.yaml | base64)"}'
 ```
 
