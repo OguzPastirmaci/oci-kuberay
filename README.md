@@ -150,7 +150,7 @@ echo "1" | sudo tee /sys/class/block/`readlink /dev/oracleoci/oraclevda | cut -d
 sudo /usr/libexec/oci-growfs -y
 ```
 
-Change the values for `NODE_POOL_NAME`, `NODE_POOL_SIZE`, `NODE_POOL_BOOT_VOLUME_SIZE_IN_GB`,and `NODE_IMAGE_ID` and run the below command:
+Change the values for `NODE_POOL_NAME`, `NODE_POOL_SIZE`, `NODE_POOL_BOOT_VOLUME_SIZE_IN_GB`,and `NODE_IMAGE_ID` and run the below command. The last line in the command will run the above script with cloud-init.
 
 
 ```sh
