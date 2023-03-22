@@ -135,7 +135,7 @@ raycluster-autoscaler-worker-ray-worker-a10-bm-lmnph   1/1     Running   0      
 ```
 
 ### Creating a new node pool with A10 VMs (VM.GPU.A10.1)
-Below command will create the node pool with 0 instances. After the node pool is created, you can edit the node pool 
+Below command will create the node pool, and extend the boot volume.
 
 ```sh
 NODE_POOL_NAME=
