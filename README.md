@@ -92,7 +92,7 @@ You should see an output similar to:
 4 - You can also submit a job to run your python script directly. You can find an example in this repo (https://github.com/OguzPastirmaci/oci-kuberay/blob/main/examples/gpu.py)
 
 ```
-ray job submit --working-dir <working directory> --no-wait -- python gpu.py
+ray job submit --address http://localhost:8265 --working-dir <working directory> --no-wait -- python gpu.py
 ```
 
 #### Method 2: Execute a Ray job in the head Pod
