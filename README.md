@@ -5,34 +5,7 @@ You can follow the instructions [here](https://www.oracle.com/webfolder/technetw
 
 You will need a CPU worker pool and a GPU worker pool. Any GPU shape will work, but this readme uses A10 VMs and BMs.
 
-### Installing kubectl
-
-The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
-
-Please follow the instructions in https://kubernetes.io/docs/tasks/tools/ to install `kubectl` based on your operating system.
-
-### Installing OCI CLI
-
-1 - Follow the instruction in https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm for installing the CLI.
-
-2 - Save the private key in the email to a location in your computer. We will use the location of the private key in the next step.
-
-3 - Copy the content in the email to `~/.oci/config`.
-
-The content will look like below (redacted version):
-
-```
-[DEFAULT]
-user=ocid1.user.oc1..aaaaaaaa7cupiq3r52
-fingerprint=21:bb:c2:09:d2:97
-tenancy=ocid1.tenancy.oc1..aaaaaaaae
-region=us-ashburn-1
-key_file=<path to your private keyfile> # TODO
-```
-
-Make sure to change the `key_file` to the location of the private key.
-
-4 - To test if everything works as expected, run `kubectl get nodes`. You should have a similar output (the number of nodes and the information might be different):
+To test if everything works as expected, run `kubectl get nodes`. You should have a similar output (the number of nodes and the information might be different):
 
 ```
 kubectl get nodes
@@ -48,9 +21,6 @@ NAME          STATUS   ROLES   AGE   VERSION
 10.0.10.57    Ready    node    19h   v1.25.4
 10.0.10.95    Ready    node    19h   v1.25.4
 ```
-
-6 - Now your access to the Kubernetes cluster is done. You won't need to follow the above steps again.
-
 
 ### Deploying a new Ray cluster
 
