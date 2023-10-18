@@ -1,6 +1,6 @@
 # Ray Operator on OKE
 
-### Deploying an OKE cluster
+### Deploy an OKE cluster
 You can follow the instructions [here](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-full/index.html) for deploying an OKE cluster.
 
 You will need a CPU worker pool and a GPU worker pool. Any GPU shape will work, but this readme uses A10 VMs and BMs.
@@ -22,7 +22,17 @@ NAME          STATUS   ROLES   AGE   VERSION
 10.0.10.95    Ready    node    19h   v1.25.4
 ```
 
-### Deploying a new Ray cluster on the OKE cluster you deployed in the previous step
+### Install Helm
+Install Helm using the instruction [here](https://helm.sh/docs/intro/install/).
+
+### Deploy the KubeRay Operator
+
+```
+helm repo add kuberay https://ray-project.github.io/kuberay-helm/
+helm repo update
+
+helm install kuberay-operator kuberay/kuberay-operator --version 1.0.0-rc.0
+```
 
 1 - Run the following commands to deploy a new cluster:
 
