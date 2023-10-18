@@ -72,7 +72,7 @@ kubectl port-forward --address 0.0.0.0 service/raycluster-autoscaler-head-svc 82
 
 2 - After running the `kubectl port-forward` command in the previous step, you should be able to open your browser and access the GUI of the Ray Dashboard by going to http://localhost:8265
 
-3 - Now let's submit a test Ray job to the cluster. We need to set the `RAY_ADDRESS` environment variable so our local Ray client knows where the head node is.
+3 - Now let's submit a test Ray job to the cluster.
 
 ```
 ray job submit --address http://localhost:8265 -- python -c "import ray; ray.init(); print(ray.cluster_resources())"
@@ -89,11 +89,13 @@ You should see an output similar to:
 ...
 ```
 
-4 - You can also submit a job to run your python script directly. You can find an example in this repo (https://github.com/OguzPastirmaci/oci-kuberay/blob/main/examples/gpu.py)
+4 - You can also submit a job to run your Python script directly. You can find an example in this repo (https://github.com/OguzPastirmaci/oci-kuberay/blob/main/examples/gpu.py)
 
 ```
 ray job submit --address http://localhost:8265 --working-dir <working directory> --no-wait -- python gpu.py
 ```
+
+Go back to Ray Dashboard (http://localhost:8265) and check the output of the job you just submitted.
 
 #### Method 2: Execute a Ray job in the head Pod
 
@@ -106,8 +108,6 @@ kubectl exec -it $HEAD_POD -- python -c "import ray; ray.init(); print(ray.clust
 
 ## Removing/redeploying the Ray Cluster if needed
 You can follow the below steps if you want to redeploy the Ray cluster on Kubernetes.
-
-You can edit/use the Kubernetes deployment yaml file here: https://github.com/OguzPastirmaci/oci-kuberay/blob/main/raycluster-autoscaler-oke.yaml
 
 ### Removing the current cluster
 
