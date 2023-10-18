@@ -3,6 +3,8 @@
 ### Deploying an OKE cluster
 You can follow the instructions [here](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-full/index.html) for deploying an OKE cluster.
 
+You will need a CPU worker pool and a GPU worker pool. Any GPU shape will work, but this readme uses A10 VMs and BMs.
+
 ### Installing kubectl
 
 The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters.
