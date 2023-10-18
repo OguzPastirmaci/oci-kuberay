@@ -23,7 +23,7 @@ NAME          STATUS   ROLES   AGE   VERSION
 ```
 
 ### Install Helm
-Install Helm using the instruction [here](https://helm.sh/docs/intro/install/).
+Install Helm using the instructions [here](https://helm.sh/docs/intro/install/).
 
 ### Deploy the KubeRay Operator
 
@@ -57,26 +57,22 @@ raycluster-autoscaler-head-gcvcr                       2/2     Running   0      
 raycluster-autoscaler-worker-ray-worker-a10-bm-lmnph   1/1     Running   0          127m
 ```
 
-### Submitting Ray jobs to the cluster
+### Running Ray jobs in the cluster
 
-Now let's submit a test job to the Ray cluster. First we need to run the port-forward command to create a connection between your computer and the Ray cluster running on Kubernetes.
+#### Method 1: Submit a Ray job to the RayCluster via ray job submission SDK
 
 1 - Run this command in a separate shell and keep it open. This command might fail when it's idle for a while. You can run it again.
 
 ```
-kubectl port-forward service/raycluster-autoscaler-head-svc 8265:8265
+kubectl port-forward --address 0.0.0.0 service/raycluster-kuberay-head-svc 8265:8265
 ```
 
-2 - After running the `kubectl port-forward` command in the previous step, you should be able to open your browser and access the GUI of the Ray Dashbord by going to http://localhost:8265
+2 - After running the `kubectl port-forward` command in the previous step, you should be able to open your browser and access the GUI of the Ray Dashboard by going to http://localhost:8265
 
 3 - Now let's submit a test Ray job to the cluster. We need to set the `RAY_ADDRESS` environment variable so our local Ray client knows where the head node is.
 
 ```
-export RAY_ADDRESS="http://127.0.0.1:8265"
-```
-
-```
-ray job submit -- python -c "import ray; ray.init(); print(ray.cluster_resources())" 
+ray job submit --address http://localhost:8265 -- python -c "import ray; ray.init(); print(ray.cluster_resources())"
 ```
 
 You should see an output similar to:
@@ -94,6 +90,15 @@ You should see an output similar to:
 
 ```
 ray job submit --working-dir <working directory> --no-wait -- python gpu.py
+```
+
+#### Method 2: Execute a Ray job in the head Pod
+
+```
+export HEAD_POD=$(kubectl get pods --selector=ray.io/node-type=head -o custom-columns=POD:metadata.name --no-headers)
+
+# Print the cluster resources.
+kubectl exec -it $HEAD_POD -- python -c "import ray; ray.init(); print(ray.cluster_resources())"
 ```
 
 ## Removing/redeploying the Ray Cluster if needed
