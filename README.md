@@ -64,7 +64,7 @@ raycluster-autoscaler-worker-ray-worker-a10-bm-lmnph   1/1     Running   0      
 1 - Run this command in a separate shell and keep it open. This command might fail when it's idle for a while. You can run it again.
 
 ```
-kubectl port-forward --address 0.0.0.0 service/raycluster-kuberay-head-svc 8265:8265
+kubectl port-forward --address 0.0.0.0 service/raycluster-autoscaler-head-svc 8265:8265
 ```
 
 2 - After running the `kubectl port-forward` command in the previous step, you should be able to open your browser and access the GUI of the Ray Dashboard by going to http://localhost:8265
