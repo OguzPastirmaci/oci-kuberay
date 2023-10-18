@@ -25,6 +25,9 @@ NAME          STATUS   ROLES   AGE   VERSION
 ### Install Helm
 Install Helm using the instructions [here](https://helm.sh/docs/intro/install/).
 
+### Install Ray
+Install Ray in your local machine using the instructions [here](https://docs.ray.io/en/latest/ray-overview/installation.html) if you want to try submitting jobs to your Ray cluster from your machine.
+
 ### Deploy the KubeRay Operator
 
 ```
