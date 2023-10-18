@@ -22,7 +22,7 @@ NAME          STATUS   ROLES   AGE   VERSION
 10.0.10.95    Ready    node    19h   v1.25.4
 ```
 
-### Deploying a new Ray cluster
+### Deploying a new Ray cluster on the OKE cluster you deployed in the previous step
 
 1 - Run the following commands to deploy a new cluster:
 
