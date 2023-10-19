@@ -34,12 +34,12 @@ helm install kuberay-operator kuberay/kuberay-operator --version 1.0.0-rc.0
 
 1 - Run the following commands to deploy a new cluster:
 
-For A10 Bare Metal instances
+For A10 Bare Metal instances (`BM.GPU.A10.4`)
 ```
 kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-bm.yaml
 ```
 
-For A10 Virtual Machine instances
+For A10 Virtual Machine instances (`VM.GPU.A10.1`)
 ```
 kubectl apply -f https://raw.githubusercontent.com/OguzPastirmaci/oci-kuberay/main/raycluster-autoscaler-oke-a10-vm.yaml
 ```
