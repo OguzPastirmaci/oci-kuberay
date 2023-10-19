@@ -12,15 +12,9 @@ To test if everything works as expected, run `kubectl get nodes`. You should hav
 kubectl get nodes
 
 NAME          STATUS   ROLES   AGE   VERSION
-10.0.10.135   Ready    node    19h   v1.25.4
-10.0.10.18    Ready    node    19h   v1.25.4
-10.0.10.180   Ready    node    19h   v1.25.4
-10.0.10.240   Ready    node    19h   v1.25.4
-10.0.10.247   Ready    node    19h   v1.25.4
-10.0.10.37    Ready    node    19h   v1.25.4
-10.0.10.5     Ready    node    19h   v1.25.4
-10.0.10.57    Ready    node    19h   v1.25.4
-10.0.10.95    Ready    node    19h   v1.25.4
+10.0.10.135   Ready    node    19h   v1.27.2
+10.0.10.18    Ready    node    19h   v1.27.2
+10.0.10.180   Ready    node    19h   v1.27.2
 ```
 
 ### Install Helm
