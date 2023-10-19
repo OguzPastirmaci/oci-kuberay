@@ -4,7 +4,7 @@
 You can follow the instructions [here](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-full/index.html) for deploying an OKE cluster.
 
 > [!IMPORTANT]  
-> You will need a CPU worker pool and a GPU worker pool. Any GPU shape will work, but this readme uses A10 VMs and BMs.
+> You will need a CPU worker pool and a GPU worker pool. Any GPU shape will work, but the manifests in this readme use A10 VMs and BMs. If you want to use a different shape, create a new manifest and adjust the limits accordingly.
 
 To test if everything works as expected, run `kubectl get nodes`. You should have a similar output (the number of nodes and the information might be different):
 
