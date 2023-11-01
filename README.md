@@ -1,7 +1,7 @@
 # Ray Operator on OKE
 
 ### Deploy an OKE cluster
-You can follow the instructions [here](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-full/index.html) for deploying an OKE cluster.
+You can use the [Terraform template in the repo](./terraform) to deploy a cluster with CPU nodes and A10 GPU nodes.
 
 > [!IMPORTANT]  
 > You will need a CPU worker pool and a GPU worker pool. Any GPU shape will work, but the manifests in this readme use A10 VMs and BMs. If you want to use a different shape, create a new manifest and adjust the limits accordingly.
